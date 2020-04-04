@@ -1,3 +1,5 @@
+package hackerrank.java.introduction;
+
 public class Multiple {
     public static void main(String[] args) {
         int N = 5;

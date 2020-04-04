@@ -1,10 +1,7 @@
+package hackerrank.java.introduction;
+
 import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
 import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
 
 class Result {
 
@@ -61,7 +58,7 @@ public class FindDay {
 //
 //        int year = Integer.parseInt(firstMultipleInput[2]);
 //
-//        String res = Result.findDay(month, day, year);
+//        String res = hackerrank.java.introduction.Result.findDay(month, day, year);
 //
 //        bufferedWriter.write(res);
 //        bufferedWriter.newLine();

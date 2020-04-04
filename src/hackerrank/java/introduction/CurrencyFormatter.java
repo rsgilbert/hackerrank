@@ -1,3 +1,5 @@
+package hackerrank.java.introduction;
+
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;

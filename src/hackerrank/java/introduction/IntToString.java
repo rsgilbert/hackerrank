@@ -1,3 +1,5 @@
+package hackerrank.java.introduction;
+
 import java.util.*;
 import java.security.*;
 

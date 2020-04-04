@@ -1,3 +1,5 @@
+package hackerrank.java.introduction;
+
 import java.math.BigInteger;
 import java.util.Scanner;
 
