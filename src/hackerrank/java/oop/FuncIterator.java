@@ -14,7 +14,9 @@ public class FuncIterator {
         }
         return it;
 
+
     }
+
 
     @SuppressWarnings({"unchecked"})
     public static void main(String[] args) {
