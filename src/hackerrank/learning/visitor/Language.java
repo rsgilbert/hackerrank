@@ -1,4 +1,4 @@
-package hackerrank.java.learning.visitor;
+package hackerrank.learning.visitor;
 
 interface LanguageAcceptor {
     String accept(LanguageVisitor visitor);

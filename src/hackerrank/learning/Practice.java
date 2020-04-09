@@ -1,4 +1,4 @@
-package hackerrank.java.learning;
+package hackerrank.learning;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -18,7 +18,7 @@ public class Practice {
 
         String bits = "1 0 1 0 0 1 0 1";
 
-        Color[] colors =  Arrays.stream(sc.nextLine().split("\\s"))
+        Color[] colors =   Arrays.stream(sc.nextLine().split("\\s"))
                 .map(i -> i.equals("0") ? Color.RED : Color.GREEN)
                 .toArray(Color[]::new);
 

@@ -1,6 +1,5 @@
-package hackerrank.java.learning;
+package hackerrank.learning;
 
-import java.io.BufferedInputStream;
 import java.util.BitSet;
 
 public class MyBitSet {

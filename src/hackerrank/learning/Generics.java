@@ -1,4 +1,4 @@
-package hackerrank.java.learning;
+package hackerrank.learning;
 
 public class Generics {
     public static void main(String[] args) {
