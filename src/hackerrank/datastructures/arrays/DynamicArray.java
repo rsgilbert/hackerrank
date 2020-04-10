@@ -3,18 +3,20 @@ package hackerrank.datastructures.arrays;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class DynamicArray {
     public static List<Integer> dynamicArray(int n, List<List<Integer>> queries) {
         List<Integer> returnList = new ArrayList<>();
-        List<List<Integer>> seqList = new ArrayList<>();
-        for(int i = 0; i < n; i++) {
-            seqList.add(new ArrayList<>());
-        }
+//        List<List<Integer>> seqList = new ArrayList<>();
+//        for (int i = 0; i < n; i++) {
+//            seqList.add(new ArrayList<>());
+//        }
 
-        List<List<Integer>> seqList2 = IntStream.range(0, n)
-                .mapToObj(i -> new ArrayList<Integer>())
+        List<List<Integer>> seqList = Stream.<List<Integer>>generate(ArrayList::new)
+                .limit(n)
                 .collect(Collectors.toList());
+
 
         int lastAnswer = 0;
 
