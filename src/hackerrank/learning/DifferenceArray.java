@@ -6,9 +6,8 @@ package hackerrank.learning;
 public class DifferenceArray {
     /**
      * We construct a new array by replacing each element by the difference between itself and the previous element
-     *
      * @param array
-     * @return
+     * @return int[]
      */
     public static int[] computeDifferenceArray(int[] array) {
         int[] diffArray = new int[array.length - 1];
@@ -19,6 +18,10 @@ public class DifferenceArray {
         return diffArray;
     }
 
+    /**
+     * Print the items in the array on a line
+     * @param array
+     */
     public static void printArray(int[] array) {
         for(int i: array) System.out.print(i + " ");
         System.out.println();
@@ -33,7 +36,6 @@ public class DifferenceArray {
         for (int i = 1; i < prefixArray.length; i++) {
             prefixArray[i] = prefixArray[i - 1] + array[i - 1];
         }
-
         return prefixArray;
     }
 
