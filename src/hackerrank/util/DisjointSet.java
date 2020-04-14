@@ -2,80 +2,55 @@ package hackerrank.util;
 
 import java.util.*;
 
-public class DisjointSet {
-    int[] rank, parent;
-    int n;
+public class DisjointSet <T> {
+    private Map<T, Integer> pointersMap = new HashMap<>();
+    private List<Set<T>> disjointSetsList = new ArrayList<>();
 
-    // Constructor
-    public DisjointSet(int n) {
-
-//        LinkedLi
-        parent = new int[n];
-        this.n = n;
-        makeSet();
+    public DisjointSet() {
+        disjointSetsList = new ArrayList<>();
     }
 
-    // Creates n sets with single item in each
-    public void makeSet() {
-        for (int i = 0; i < n; i++) {
-            // Initially, all elements are in
-            // their own set.
-            parent[i] = i;
+    /**
+     * Create a DisjointSet of @param{setsCount} sets each initialized with one item.
+     * @param setsCount
+     */
+    public DisjointSet(int setsCount) {
+        for(Integer idx = 0; idx < setsCount; idx++) {
+            T item = (T) idx;
+            disjointSetsList.add(createItemSet(item));
+            pointersMap.put(item, idx);
         }
     }
 
-    // Returns representative of x's set
-    public int find(int x) {
-        // Finds the representative of the set
-        // that x is an element of
-        if (parent[x] != x) {
-            // if x is not the parent of itself
-            // Then x is not the representative of
-            // his set,
-            parent[x] = find(parent[x]);
-
-            // so we recursively call Find on its parent
-            // and move i's node directly under the
-            // representative of this set
-        }
-
-        return parent[x];
+    public void makeSet(T item) {
+        disjointSetsList.add(createItemSet(item));
+        int position = disjointSetsList.size() - 1;
+        pointersMap.put(item, position);
     }
 
-    // Unites the set that includes x and the set
-    // that includes x
-    public void union(int x, int y) {
-        // Find representatives of two sets
-        int xRoot = find(x), yRoot = find(y);
+    private Set<T> createItemSet(T item) {
+        Set<T> set = new HashSet<>();
+        set.add(item);
+        return set;
+    }
 
-        // Elements are in the same set, no need
-        // to unite anything.
-        if (xRoot == yRoot)
-            return;
+    public int find(T item) {
+        return pointersMap.get(item);
+    }
 
-        // If x's rank is less than y's rank
-        if (rank[xRoot] < rank[yRoot])
+    public Set<T> getSet(int pointer) {
+        return disjointSetsList.get(pointer);
+    }
 
-            // Then move x under y  so that depth
-            // of tree remains less
-            parent[xRoot] = yRoot;
+    public void union(T item1, T item2) {
+        int item1Pointer = find(item1);
+        int item2Pointer = find(item2);
 
-            // Else if y's rank is less than x's rank
-        else if (rank[yRoot] < rank[xRoot])
+        Set<T> set1 = getSet(item1Pointer);
+        Set<T> set2 = getSet(item2Pointer);
 
-            // Then move y under x so that depth of
-            // tree remains less
-            parent[yRoot] = xRoot;
-
-        else // if ranks are the same
-        {
-            // Then move y under x (doesn't matter
-            // which one goes where)
-            parent[yRoot] = xRoot;
-
-            // And increment the result tree's
-            // rank by 1
-            rank[xRoot] = rank[xRoot] + 1;
-        }
+        set1.addAll(set2);
+        set2.clear();
+        pointersMap.put(item2, item1Pointer);
     }
 }
