@@ -38,19 +38,39 @@ public class DisjointSet <T> {
         return pointersMap.get(item);
     }
 
-    public Set<T> getSet(int pointer) {
-        return disjointSetsList.get(pointer);
+    public Set<T> getSet(T item) {
+        int position = find(item);
+//        System.out.println((disjointSetsList.get(position));
+        return disjointSetsList.get(position);
     }
 
     public void union(T item1, T item2) {
         int item1Pointer = find(item1);
         int item2Pointer = find(item2);
 
-        Set<T> set1 = getSet(item1Pointer);
-        Set<T> set2 = getSet(item2Pointer);
+        Set<T> set1 = getSet(item1);
+        Set<T> set2 = getSet(item2);
 
-        set1.addAll(set2);
-        set2.clear();
-        pointersMap.put(item2, item1Pointer);
+        if(set1.size() > set2.size()) {
+            set1.addAll(set2);
+            for(T item: set2) {
+                pointersMap.put(item, item1Pointer);
+            }
+        } else {
+            set2.addAll(set1);
+            for(T item: set1) {
+                pointersMap.put(item, item2Pointer);
+            }
+        }
     }
 }
+/**
+ 3 7
+ Q 1
+ M 1 2
+ Q 2
+ M 2 3
+ Q 3
+ Q 2
+ Q 3
+ */

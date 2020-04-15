@@ -12,10 +12,7 @@ public class UseDisjointSet {
         int item1Pointer = disjointSet.find(2);
         System.out.println(item1Pointer);
         disjointSet.union(1, 2);
-        Set<Integer> set = disjointSet.getSet(1);
+        Set<Integer> set = disjointSet.getSet(2);
         System.out.println(set);
-
-
-
     }
 }
