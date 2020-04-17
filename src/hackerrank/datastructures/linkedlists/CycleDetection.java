@@ -69,8 +69,7 @@ public class CycleDetection {
         if(head == null || head.next == null) return false;
         SinglyLinkedListNode tortoise = head;
         SinglyLinkedListNode hare = head;
-        while(hare != null) {
-
+        while(hare != null && hare.next != null) {
             if(tortoise == hare && hare != head) return true;
             tortoise = tortoise.next;
             hare = hare.next.next;
