@@ -50,22 +50,35 @@ public class PrintLinkedList {
 
     private static final Scanner scanner = new Scanner(System.in);
 
+    static void toNext(SinglyLinkedListNode node) {
+        node = node.next;
+    }
+
     public static void main(String[] args) {
-        SinglyLinkedList llist = new SinglyLinkedList();
 
-        int llistCount = scanner.nextInt();
-        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+        SinglyLinkedListNode node = new SinglyLinkedListNode(32);
+        System.out.println(node.data);
+        toNext(node);
+        System.out.println(node.data);
 
-        for (int i = 0; i < llistCount; i++) {
-            int llistItem = scanner.nextInt();
-            scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+//        SinglyLinkedList llist = new SinglyLinkedList();
+//        System.out.println(llist.);
 
-            llist.insertNode(llistItem);
-        }
 
-        printLinkedList(llist.head);
-
-        scanner.close();
+//
+//        int llistCount = scanner.nextInt();
+//        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+//
+//        for (int i = 0; i < llistCount; i++) {
+//            int llistItem = scanner.nextInt();
+//            scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+//
+//            llist.insertNode(llistItem);
+//        }
+//
+//        printLinkedList(llist.head);
+//
+//        scanner.close();
     }
 }
 /*
