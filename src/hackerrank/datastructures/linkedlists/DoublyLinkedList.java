@@ -8,7 +8,6 @@ import java.util.concurrent.*;
 import java.util.regex.*;
 
 public class DoublyLinkedList {
-
     static class DoublyLinkedListNode {
         public int data;
         public DoublyLinkedListNode next;
@@ -39,7 +38,6 @@ public class DoublyLinkedList {
                 this.tail.next = node;
                 node.prev = this.tail;
             }
-
             this.tail = node;
         }
     }
